@@ -1,12 +1,9 @@
+import 'dotenv/config'
 import express from 'express'
 import path from 'path'
+import { fileURLToPath } from 'url'
 import favicon from 'serve-favicon'
-import dotenv from 'dotenv'
-
-// import the router from your routes file
-
-
-dotenv.config()
+import sneakersRouter from './routes/sneakers.js'
 
 const PORT = process.env.PORT || 3000
 
@@ -22,6 +19,9 @@ else if (process.env.NODE_ENV === 'production') {
     app.use(express.static('public'))
 }
 
+// mount sneakers API
+app.use('/api/sneakers', sneakersRouter)
+
 // specify the api path for the server to use
 
 
@@ -34,3 +34,5 @@ if (process.env.NODE_ENV === 'production') {
 app.listen(PORT, () => {
     console.log(`server listening on http://localhost:${PORT}`)
 })
+
+export default app

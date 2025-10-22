@@ -1,10 +1,11 @@
 {
-  "name": "boltbucket",
+  "name": "fashsneaks",
   "type": "module",
   "scripts": {
     "dev": "concurrently \"cd client && vite\" \"cd server && nodemon server\"",
     "start": "cd server && node server",
-    "build": "cd client && vite build"
+    "build": "cd client && vite build",
+    "db:reset": "node server/config/reset.js"
   },
   "dependencies": {
     "@picocss/pico": "^1.5.7",
